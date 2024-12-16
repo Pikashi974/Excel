@@ -1,0 +1,8 @@
+[
+  { "designation": "SCOOTER", "prix": 968.29, "coeff": 1.4 },
+  { "designation": "CASQUE", "prix": 30.02, "coeff": 1.5 },
+  { "designation": "BAGAGERIE", "prix": 23.4, "coeff": 2.0 },
+  { "designation": "ACCESSOIRES", "prix": 52.8, "coeff": 1.8 },
+  { "designation": "VÊTEMENTS", "prix": 75.3, "coeff": 1.5 },
+  { "designation": "DIVERS", "prix": 12.5, "coeff": 2.3 }
+]

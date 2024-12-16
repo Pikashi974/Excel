@@ -1,0 +1,18 @@
+[
+  { "ref": "Perceuse à percution", "prix": 41.46, "coeff": 1.2 },
+  { "ref": "Meuleuse d'angle", "prix": 32.75, "coeff": 1.2 },
+  { "ref": "Coffret niveau laser", "prix": 18.74, "coeff": 1.2 },
+  { "ref": "Etabli pliant", "prix": 9.41, "coeff": 1.2 },
+  { "ref": "Compresseur 50 L", "prix": 73.86, "coeff": 1.2 },
+  { "ref": "Scie coupe parquet", "prix": 41.15, "coeff": 1.4 },
+  { "ref": "Perforateur", "prix": 23.83, "coeff": 1.4 },
+  { "ref": "Nettoyeur haute pression", "prix": 77.04, "coeff": 1.4 },
+  { "ref": "Tronçonneuse", "prix": 118.85, "coeff": 1.4 },
+  {
+    "ref": "Aspirateur souffleur/broyeur",
+    "prix": 23.83,
+    "coeff": 1.4
+  },
+  { "ref": "Pompe d'évacuation", "prix": 17.32, "coeff": 1.4 },
+  { "ref": "Projecteur portable 150 W", "prix": 3.86, "coeff": 2.1 }
+]

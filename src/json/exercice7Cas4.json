@@ -1,0 +1,14 @@
+[
+  {
+    "ref": "COR",
+    "designation": "Caisses d'oranges",
+    "qte": 9,
+    "prixUnit": 12.39
+  },
+  {
+    "ref": "CBA",
+    "designation": "Cartons de bananes",
+    "qte": 6,
+    "prixUnit": 10.59
+  }
+]

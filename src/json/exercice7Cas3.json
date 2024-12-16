@@ -1,0 +1,26 @@
+[
+  {
+    "designation": "Processeur",
+    "qte": 3,
+    "prixUnit": 220.0,
+    "remise": 3.5
+  },
+  {
+    "designation": "Ecran LCD",
+    "qte": 10,
+    "prixUnit": 180.0,
+    "remise": 5.0
+  },
+  {
+    "designation": "Clavier",
+    "qte": 13,
+    "prixUnit": 10.0,
+    "remise": 1.2
+  },
+  {
+    "designation": "Souris",
+    "qte": 25,
+    "prixUnit": 12.0,
+    "remise": 4.0
+  }
+]

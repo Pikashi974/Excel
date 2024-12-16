@@ -1,0 +1,8 @@
+[
+  { "ref": "963094", "titre": "Set à cocktail", "qte": 3, "prixUnit": 24.5 },
+  { "ref": "963399", "titre": "Brise-glace", "qte": 5, "prixUnit": 60.0 },
+  { "ref": "963090", "titre": "Plateau 35 cm", "qte": 3, "prixUnit": 24.5 },
+  { "ref": "963092", "titre": "Seau à champagne", "qte": 5, "prixUnit": 33.0 },
+  { "ref": "963091", "titre": "Seau à glace", "qte": 5, "prixUnit": 49.5 },
+  { "ref": "141067", "titre": "Sucrier boule", "qte": 4, "prixUnit": 24.0 }
+]

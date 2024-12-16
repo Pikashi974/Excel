@@ -1,0 +1,24 @@
+{
+  "name": "exercice_excel",
+  "version": "1.0.0",
+  "description": "Une conversion des exercices Excel en code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "dependencies": {
+    "apexcharts": "^4.0.0",
+    "datatables.net-bs5": "^2.1.8",
+    "datatables.net-buttons-bs5": "^3.2.0",
+    "datatables.net-fixedcolumns-bs5": "^5.0.4",
+    "dotenv": "^16.4.5",
+    "exercice_excel": "file:",
+    "express": "^4.21.1",
+    "jszip": "^3.10.1",
+    "pdfmake": "^0.2.15",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  },
+  "author": "Jeremy Payet",
+  "license": "ISC"
+}

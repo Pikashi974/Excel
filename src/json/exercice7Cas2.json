@@ -1,0 +1,68 @@
+[
+  {
+    "date": "Dernier relevé",
+    "compteur": "12200",
+    "qtePlein": "",
+    "prixLitre": ""
+  },
+  {
+    "date": "15-janv",
+    "compteur": "12605",
+    "qtePlein": 20.0,
+    "prixLitre": 1.35
+  },
+  {
+    "date": "20-janv",
+    "compteur": "12990",
+    "qtePlein": 22.0,
+    "prixLitre": 1.35
+  },
+  {
+    "date": "10-févr",
+    "compteur": "13345",
+    "qtePlein": 18.0,
+    "prixLitre": 1.35
+  },
+  {
+    "date": "14-févr",
+    "compteur": "13670",
+    "qtePlein": 15.0,
+    "prixLitre": 1.3
+  },
+  {
+    "date": "18-févr",
+    "compteur": "14200",
+    "qtePlein": 29.0,
+    "prixLitre": 1.3
+  },
+  {
+    "date": "01-mars",
+    "compteur": "14366",
+    "qtePlein": 12.0,
+    "prixLitre": 1.22
+  },
+  {
+    "date": "03-mars",
+    "compteur": "14700",
+    "qtePlein": 20.0,
+    "prixLitre": 1.38
+  },
+  {
+    "date": "07-mars",
+    "compteur": "15109",
+    "qtePlein": 28.0,
+    "prixLitre": 1.38
+  },
+  {
+    "date": "10-mars",
+    "compteur": "15490",
+    "qtePlein": 22.0,
+    "prixLitre": 1.35
+  },
+  {
+    "date": "15-mars",
+    "compteur": "15900",
+    "qtePlein": 25.0,
+    "prixLitre": 1.35
+  }
+]

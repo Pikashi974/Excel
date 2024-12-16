@@ -1,0 +1,51 @@
+[
+  {
+    "travaux": "Terrassement",
+    "joursprevus": 2,
+    "datedebut": "15/01/2007",
+    "datefin": "18/01/2007",
+    "coutjour": 750
+  },
+  {
+    "travaux": "Fondations",
+    "joursprevus": 4,
+    "datedebut": "20/01/2007",
+    "datefin": "24/01/2007",
+    "coutjour": 450
+  },
+  {
+    "travaux": "Gros oeuvre",
+    "joursprevus": 12,
+    "datedebut": "01/02/2007",
+    "datefin": "15/02/2007",
+    "coutjour": 450
+  },
+  {
+    "travaux": "Toiture",
+    "joursprevus": 3,
+    "datedebut": "16/02/2007",
+    "datefin": "18/02/2007",
+    "coutjour": 430
+  },
+  {
+    "travaux": "Plomberie",
+    "joursprevus": 5,
+    "datedebut": "20/02/2007",
+    "datefin": "01/03/2007",
+    "coutjour": 390
+  },
+  {
+    "travaux": "Menuiserie",
+    "joursprevus": 6,
+    "datedebut": "02/03/2007",
+    "datefin": "10/03/2007",
+    "coutjour": 390
+  },
+  {
+    "travaux": "Peinture",
+    "joursprevus": 4,
+    "datedebut": "12/03/2007",
+    "datefin": "17/03/2007",
+    "coutjour": 400
+  }
+]

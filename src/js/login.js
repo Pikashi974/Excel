@@ -50,10 +50,46 @@ async function sendRegistration(event) {
     }).then((res) => {
       res.json();
     });
-    console.log(data);
+    // console.log(data);
+
+    localStorage.setItem("token", data.jwt);
+    location.href = "/";
   }
 
   //   console.log(dataRegistration);
 }
 
-function sendConnection(event) {}
+async function sendConnection(event) {
+  // Username verification
+  if (document.getElementById("loginName").value == "") {
+    document.getElementById("loginName").classList.add("is-invalid");
+  } else {
+    document.getElementById("loginName").classList.remove("is-invalid");
+  }
+  // Password verification
+  if (document.getElementById("loginPassword").value == "") {
+    document.getElementById("loginPassword").classList.add("is-invalid");
+  } else {
+    document.getElementById("loginPassword").classList.remove("is-invalid");
+  }
+
+  if (formLogin.querySelectorAll(".is-invalid").length == 0) {
+    let dataRegistration = {
+      identifier: document.getElementById("loginName").value,
+      password: document.getElementById("loginPassword").value,
+    };
+    let data = await fetch("/login", {
+      method: "POST",
+      body: JSON.stringify(dataRegistration),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }).then((res) => {
+      res.json();
+    });
+    console.log(data);
+
+    localStorage.setItem("token", data.jwt);
+    location.href = "/";
+  }
+}

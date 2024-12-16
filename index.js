@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const jwt = require("jsonwebtoken");
 const port = 4040;
 
 require("dotenv").config();
@@ -8,17 +9,41 @@ app.use("/src", express.static(__dirname + "/src"));
 app.use(express.json());
 
 app.get("/", (req, res) => {
+  // console.log(localStorage);
+
   // if (localStorage.getItem("userInfo") == undefined) {
-  res.redirect("/login");
+  // res.redirect("/login");
   // }
   res.sendFile(__dirname + "/src/html/index.html");
 });
 app.get("/login", (req, res) => {
   res.sendFile(__dirname + "/src/html/login.html");
 });
-app.post("/register", async (req, res) => {
+
+app.post("/login", async (req, res) => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify(req.body);
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
+
+  let jsonOutput = await fetch(
+    "http://localhost:1337/api/auth/local",
+    requestOptions
+  )
+    .then((response) => response.json())
+    .catch((error) => console.log("error", error));
+  console.log(jsonOutput);
+
+  res.send(jsonOutput);
+});
+app.post("/register", async (req, res) => {
+  var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
   var raw = JSON.stringify(req.body);
@@ -36,7 +61,6 @@ app.post("/register", async (req, res) => {
     requestOptions
   )
     .then((response) => response.json())
-    .then((result) => console.log(result))
     .catch((error) => console.log("error", error));
 
   res.send(jsonOutput);
@@ -82,3 +106,20 @@ app.get("/exercice:id", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+
+  if (token == null) return res.sendStatus(401);
+
+  jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
+    console.log(err);
+
+    if (err) return res.sendStatus(403);
+
+    req.user = user;
+
+    next();
+  });
+}

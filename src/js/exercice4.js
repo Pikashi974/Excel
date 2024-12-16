@@ -1,28 +1,37 @@
 let dataInput;
 async function init() {
-  dataInput = await fetch("/data/grossistes").then((res) => res.json());
-  for (let index = 1; index <= dataInput.meta.pagination.total; index++) {
-    document.querySelector("ul.nav-tabs").appendChild(
-      document.createRange()
-        .createContextualFragment(`<li class="nav-item" role="presentation">
+  try {
+    dataInput = await fetch("/data/grossistes").then((res) => res.json());
+    for (let index = 1; index <= dataInput.meta.pagination.total; index++) {
+      document.querySelector("ul.nav-tabs").appendChild(
+        document.createRange()
+          .createContextualFragment(`<li class="nav-item" role="presentation">
                 <a class="nav-link ${
                   index == 1 ? "active" : ""
                 }" data-bs-toggle="tab" href="#tab${index}" aria-selected="true" role="tab">Cas ${index}</a>
             </li>`)
-    );
-    document.querySelector("#myTabContent").appendChild(
-      document.createRange().createContextualFragment(
-        `<div class="tab-pane ${
-          index == 1 ? "show active" : "fade"
-        }" id="tab${index}" role="tabpanel">
+      );
+      document.querySelector("#myTabContent").appendChild(
+        document.createRange().createContextualFragment(
+          `<div class="tab-pane ${
+            index == 1 ? "show active" : "fade"
+          }" id="tab${index}" role="tabpanel">
             <div id="cas${index}" class="d-flex"></div>
             ${showDataGrossiste(dataInput.data[index - 1])}
           </div>`
-      )
-    );
+        )
+      );
+    }
+  } catch (error) {
+    console.error(error);
   }
 }
-init();
+
+if (localStorage.token == undefined) {
+  location.href = "/login";
+} else {
+  init();
+}
 
 function showDataGrossiste(params) {
   // Conditions de vente

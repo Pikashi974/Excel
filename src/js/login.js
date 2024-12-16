@@ -3,8 +3,14 @@ const submitterLogin = document.querySelector("button[value=login]");
 const formRegister = document.getElementById("formRegister");
 const submitterRegister = document.querySelector("button[value=register]");
 
-submitterLogin.addEventListener("click", sendConnection);
-submitterRegister.addEventListener("click", sendRegistration);
+submitterLogin.addEventListener("click", async (e) => {
+  await sendConnection(e);
+});
+submitterRegister.addEventListener("click", async (e) => {
+  await sendRegistration(e);
+});
+
+localStorage.clear();
 
 async function sendRegistration(event) {
   // Password verification
@@ -78,18 +84,23 @@ async function sendConnection(event) {
       identifier: document.getElementById("loginName").value,
       password: document.getElementById("loginPassword").value,
     };
-    let data = await fetch("/login", {
+    let response = await fetch("/login", {
       method: "POST",
       body: JSON.stringify(dataRegistration),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    }).then((res) => {
-      res.json();
     });
-    console.log(data);
+    let data = await response.json();
 
-    localStorage.setItem("token", data.jwt);
-    location.href = "/";
+    // console.log(data);
+    if (data.jwt != undefined) {
+      localStorage.setItem("token", data.jwt);
+      localStorage.setItem("user", JSON.stringify(data.user));
+      location.href = "/";
+    } else {
+      document.getElementById("loginPassword").classList.add("is-invalid");
+      document.getElementById("loginName").classList.add("is-invalid");
+    }
   }
 }

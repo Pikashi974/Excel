@@ -9,14 +9,10 @@ app.use("/src", express.static(__dirname + "/src"));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  // console.log(localStorage);
-
-  // if (localStorage.getItem("userInfo") == undefined) {
-  // res.redirect("/login");
-  // }
   res.sendFile(__dirname + "/src/html/index.html");
 });
 app.get("/login", (req, res) => {
+  process.env.API_TOKEN = "";
   res.sendFile(__dirname + "/src/html/login.html");
 });
 
@@ -38,7 +34,8 @@ app.post("/login", async (req, res) => {
   )
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
-  console.log(jsonOutput);
+
+  process.env.API_TOKEN = jsonOutput.jwt;
 
   res.send(jsonOutput);
 });
@@ -71,7 +68,9 @@ app.get("/favicon.ico", (req, res) => {
 });
 app.get("/data/:obj", async (req, res) => {
   var myHeaders = new Headers();
+
   myHeaders.append("Authorization", `Bearer ${process.env.API_TOKEN}`);
+  // myHeaders.append("Authorization", req.headers.authorization);
 
   var requestOptions = {
     method: "GET",
@@ -106,20 +105,3 @@ app.get("/exercice:id", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
-
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
-
-  if (token == null) return res.sendStatus(401);
-
-  jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
-    console.log(err);
-
-    if (err) return res.sendStatus(403);
-
-    req.user = user;
-
-    next();
-  });
-}

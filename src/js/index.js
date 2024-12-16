@@ -1,7 +1,14 @@
 async function init() {
   try {
-    let data = await fetch("/data/exercices").then((res) => res.json());
-    console.log(data);
+    let data = await fetch(
+      "/data/exercices"
+      //   , {
+      //   headers: {
+      //     Authorization: `Bearer ${localStorage.token}`,
+      //   },
+      // }
+    ).then((res) => res.json());
+    // console.log(data);
 
     if (data && data.data && data.meta) {
       let listeOutput = document.querySelector("#exercicesList");
@@ -41,7 +48,13 @@ async function init() {
     console.error(error);
   }
 }
-init();
+
+if (localStorage.token == undefined) {
+  location.href = "/login";
+} else {
+  init();
+}
+
 /*
 
 */
